@@ -15,4 +15,6 @@ RUN apk update && apk upgrade && \
     ./configure && make && make install && \
     wget -qO- https://www.openfabrics.org/~halr/libibmad-${LIBIBMAD_VER}.tgz |tar xfz - -C /opt/ && \
     cd /opt/libibmad-${LIBIBMAD_VER} && \
-    ./configure && make && make install
+    ./configure && make && make install && \
+    apk del g++ make perl tar wget libgcrypt-dev && \
+    rm -rf /var/cache/apk/*
